@@ -1,50 +1,70 @@
-/* 
-// Задание: (Команды)
-1) создаёте пустой массив
-2) Потом бесконечно начинает работать окно ввода текста
-3) Вы задаете команду.Например: добавить элемен, Иван
-Пример: add, Иван
-4) Обрабатываете команду "add" и добавляете в массив строку Иван
-5) Цикл повторяется.Задаете другую команду(удалить элемент, Иван)
-Пример: del, Иван
-6) Обрабатываете команда, цикл повторяется.Все результаты добавления и удаления выводятся командой "alert(arr)" как массив.
-7) Когда получаете команду "stop" то окно ввода текста больше не появлятся.После остановки в console выводится конечный массив.
--->
 
- 
+// Задание: (Команды)
+
 
 let arr = [];
 
-// let userMess = prompt('Введите команду (add,del,stop) и имя');
-
-
-    for (let i = 0; userMess !== "stop"; i++) {
-        var userMess = prompt('Введите команду (add,del,stop) и имя');
-        if (userMess[i].toLowerCase() == 'add') {
-            arr.push(userMess);
-            alert(arr);
-        } else if (userMess[i].toLowerCase() == 'del') {
-            arr.splice(userMess,1);
-            alert(arr);
+do {
+    var userMess = prompt('Введите команду (add,del,stop) и имя');
+    let mess = userMess.split(", ");
+    if (mess[0] == "add") {
+        arr.push(mess[1]);
+    } else if (mess[0] == "del") {
+        for (const name in arr) {
+            if (arr[name] === mess[1]) {
+                arr.splice(name, 1);
+            }
         }
-        alert(arr);
     }
+    alert(arr);
+}
+while (userMess !== "stop")
+
+console.log(arr);
+
+
+
+
+
+/* 
+
+for (const key in arr) {
+    if (arr[key] === 'Маша') {
+            arr.splice(key,1)
+    }
+
 
 */
 
+/* for (let i = 0; userMess !== "stop"; i++) {
+    let mess =
+    var userMess = prompt('Введите команду (add,del,stop) и имя');
+    if (userMess[i].toLowerCase() == 'add') {
+        arr.push(userMess);
+        alert(arr);
+    } else if (userMess[i].toLowerCase() == 'del') {
+        arr.splice(userMess,1);
+        alert(arr);
+    }
+    alert(arr);
+} */
 
+
+/*
 
 // Задание: (Подсчет гласных)
 
 
 let message = prompt('Введите строку');
-let count = 0;
+
 
 function vowels(message) {
+    let count = 0;
     for (let i = 0; i < message.length; i++) {
-        if (message[i].toLowerCase() == 'а' || message[i].toLowerCase() == 'у' || message[i].toLowerCase() == 'о' || message[i].toLowerCase() == 'ы' || message[i].toLowerCase() == 'и' || message[i].toLowerCase() == 'э' || message[i].toLowerCase() == 'я' || message[i].toLowerCase() == 'ю' || message[i].toLowerCase() == 'ё' || message[i].toLowerCase() == 'е') {
+        let mess = message.toLowerCase()
+        if (mess[i] == 'а' || mess[i] == 'у' || mess[i] == 'о' || mess[i] == 'ы' || mess[i] == 'и' || mess[i] == 'э' || mess[i] == 'я' || mess[i] == 'ю' || mess[i] == 'ё' || mess[i] == 'е') {
             count += 1;
-        } else if (message[i].toLowerCase() == 'a' || message[i].toLowerCase() == 'i' || message[i].toLowerCase() == 'o' || message[i].toLowerCase() == 'e' || message[i].toLowerCase() == 'u') {
+        } else if (mess[i] == 'a' || mess[i] == 'i' || mess[i] == 'o' || mess[i] == 'e' || mess[i] == 'u') {
             count += 1;
         }
 
@@ -52,8 +72,7 @@ function vowels(message) {
     return count;
 }
 
-
 alert(`В вашем сообщении ${vowels(message)} гласных.`);
-console.log(`Ваша сообщение: "${message}". Гласных: ${vowels(message) / 2}.`);
+console.log(`Ваше сообщение: "${message}". Гласных: ${vowels(message)}.`);
 
- 
+ */
